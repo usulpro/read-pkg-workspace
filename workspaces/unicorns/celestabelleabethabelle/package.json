@@ -1,0 +1,16 @@
+{
+  "name": "celestabelleabethabelle",
+  "description": "the unicorn",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "keywords": [
+    "unicorn",
+    "unicorns"
+  ],
+  "optDependencies": {
+    "horns": "^1.0.0",
+    "hooves": "^4.0.2",
+    "ponytail": "0.7.1"
+  }
+}
