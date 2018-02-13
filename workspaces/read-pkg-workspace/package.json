@@ -42,6 +42,7 @@
     "nested"
   ],
   "dependencies": {
+    "micromatch": "^3.1.5",
     "read-pkg-up": "^3.0.0"
   },
   "devDependencies": {
