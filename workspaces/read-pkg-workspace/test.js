@@ -77,7 +77,6 @@ describe('read-pkg-workspace. use cases', () => {
         expect(result.path).toBe(path.resolve(rootPath, '../'));
         testPathSequence(cwd, result);
 
-        console.log(result);
       })
   });
 
