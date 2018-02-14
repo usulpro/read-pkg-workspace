@@ -1,14 +1,10 @@
 {
-  "name": "read-pkg-workspace",
+  "name": "parse-workspace-path",
   "version": "0.1.0",
-  "description": "Read the closest package.json files and find yarn workspaces",
   "main": "index.js",
   "author": "UsulPro",
   "license": "MIT",
   "private": false,
-  "scripts": {
-    "dev": "node test.js"
-  },
   "homepage": "https://github.com/usulpro/read-pkg-workspace",
   "bugs": {
     "url": "https://github.com/usulpro/read-pkg-workspace/issues"
@@ -56,11 +52,6 @@
     "find-up"
   ],
   "dependencies": {
-    "micromatch": "^3.1.5",
-    "read-pkg-up": "^3.0.0"
-  },
-  "devDependencies": {
-    "chalk": "^2.3.1",
-    "jest": "^22.2.2"
+    "read-pkg-workspace": "^0.1.0"
   }
 }

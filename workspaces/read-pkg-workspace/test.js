@@ -6,6 +6,7 @@ const readPkgWsp = require('./index');
  * todo:
  * [x] test package in the workspace (direclty specified)
  * [x] test package in the workspace (specified by *)
+ * [x] test file in the workspace
  * [x] test single package
  * [x] test single workspace (without package)
  * [x] test package in the workspace folder but not specified in package.json/workspaces
@@ -77,6 +78,25 @@ describe('read-pkg-workspace. use cases', () => {
         expect(result.path).toBe(path.resolve(rootPath, '../'));
         testPathSequence(cwd, result);
 
+      })
+  });
+
+  it('test file in workspace', () => {
+    const cwd = path.resolve(rootPath, 'unicorns/celestabelleabethabelle/src/stories/unicorn.story.js');
+
+    expect.assertions(7);
+    return readPkgWsp({ cwd })
+      .then(result => {
+        const pkgPath = path.resolve(rootPath, 'unicorns/celestabelleabethabelle/package.json');
+        const wspPath = path.resolve(rootPath, 'package.json');
+
+        expect(result.package.path).toBe(pkgPath);
+        expect(result.package.tailPath).toBe('src/stories/unicorn.story.js');
+        expect(result.package.relativePath).toBe('unicorns/celestabelleabethabelle');
+        expect(result.workspace.path).toBe(wspPath);
+        expect(result.workspace.name).toBe('workspaces');
+        expect(result.path).toBe(path.resolve(rootPath, '../'));
+        testPathSequence(cwd, result);
       })
   });
 
@@ -163,11 +183,12 @@ describe('read-pkg-workspace. use cases', () => {
         testPathSequence(cwd, result);
       })
   });
+
 })
 
 describe('read-pkg-workspace. color output', () => {
   it('visual tests:', () => {
-    expect.assertions(7);
+    expect.assertions(8);
     resultsToColorize.forEach(result => {
       expect(() => process.stdout.write(`\t${colorize(result)}\n`)).not.toThrow();
     })

@@ -1,5 +1,5 @@
 # read-pkg-workspace
-> Read the closest two package.json files and checks if they are organized in a workspace
+> Reads the closest two package.json files and checks if they are organized in a workspace
 
 - Supports Yarn [workspaces](https://yarnpkg.com/en/docs/workspaces)
 - Based on [read-pkg-up](https://www.npmjs.com/package/read-pkg-up)

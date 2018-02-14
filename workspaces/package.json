@@ -1,4 +1,8 @@
 {
     "private": true,
-    "workspaces": ["read-pkg-workspace", "unicorns/*"]
+    "workspaces": [
+        "read-pkg-workspace",
+        "parse-workspace-path",
+        "unicorns/*"
+    ]
 }
