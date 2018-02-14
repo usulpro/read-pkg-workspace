@@ -30,18 +30,23 @@ module.exports = opts => {
 
   return readPkgUp(opts)
     .then(result => {
-      if (result.pkg) { /* project package.json exist */
+      if (result.pkg) {
+
+        /* project package.json exist */
         const upperFolder = path.resolve(result.path, '../../');
-        // const tailPath = path.relative(path.parse(result.path).dir, cwd);
+
         return readPkgUp({cwd: upperFolder})
           .then(upResult => {
 
-            if (upResult.pkg) { /* workspace package.json exist */
+            if (upResult.pkg) {
+
+              /* workspace (upper) package.json exist */
               const relativePath = relPath(result, upResult);
 
               if (isWorkspace(upResult)) { /* is it really workspace? */
 
                 if (isMatchWorkspaces(relativePath, upResult.pkg.workspaces)) {
+
                   /* if this deep package is specified in "workspaces" of upper package */
                   return {
                     package: {
@@ -55,32 +60,19 @@ module.exports = opts => {
                       },
                     path: path.resolve(upResult.path, '../../'),
                   };
-                } else {
-
-                  /* it's just single package nested in another package with workspaces */
-                  // todo: try to merge these two branches
-                  return {
-                    package: {
-                      ...result,
-                      tailPath: tailPath(result, cwd),
-                    },
-                    workspace: {},
-                    path: path.resolve(result.path, '../')
-                  };
-
                 }
-              } else {
-                /* it's just single package nested in another package */
-                return {
-                  package: {
-                    ...result,
-                    tailPath: tailPath(result, cwd),
-                  },
-                  workspace: {},
-                  path: path.resolve(result.path, '../')
-                };
-
               }
+
+              /* it's just separate package nested in another package (possible with workspaces) */
+              return {
+                package: {
+                  ...result,
+                  tailPath: tailPath(result, cwd),
+                },
+                workspace: {},
+                path: path.resolve(result.path, '../')
+              };
+
             } else { /* single package or single workspace */
               if (isWorkspace(result)) {
 
@@ -109,6 +101,7 @@ module.exports = opts => {
             }
           })
       } else {
+
         /* no one package.json */
         return {
           package: result,
@@ -118,17 +111,4 @@ module.exports = opts => {
       }
 
     })
-    // .catch(err => {
-    //   console.log('Catch Error:')
-    //   console.log(err)
-    //   return {path: 'nothig'};
-    // })
-
-	// return findUp('package.json', opts).then(fp => {
-	// 	if (!fp) {
-	// 		return {};
-	// 	}
-
-	// 	return readPkg(fp, opts).then(pkg => ({pkg, path: fp}));
-	// });
 };
