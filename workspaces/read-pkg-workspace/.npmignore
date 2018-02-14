@@ -1,0 +1,9 @@
+/node_modules/
+/.coverage/
+/.vscode/
+.babelrc
+.eslintrc.js
+jest.config.js
+.scripts
+docs
+test.js
