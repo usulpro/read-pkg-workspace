@@ -1,5 +1,6 @@
-/node_modules
+/node_modules/
 workspaces/node_modules
+workspaces/read-pkg-workspace/node_modules
 
 
 npm-debug.log*
