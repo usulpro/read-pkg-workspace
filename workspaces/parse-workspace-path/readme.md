@@ -17,24 +17,24 @@ npm i parse-workspace-path --save
 ```js
 const parseWspPath = require('parse-workspace-path');
 
-const absoluteDir = '.../yarn-workspace-folder/packages/package-A/src/...';
+const absolutePath = '.../yarn-workspace-folder/packages/package-A/src/...';
 
-parseWspPath(absoluteDir)
+parseWspPath(absolutePath)
   .then(result => console.log(result))
 
 ```
 The returned object will have the following properties:
 
-- dir <string>
-- root <string>
-- workspaceName <string>
-- packageDir <string>
-- packageName <string>
-- packageVersion <string>
-- localDir <string>
-- base <string>
-- name <string>
-- ext <string>
+- dir `<string>`
+- root `<string>`
+- workspaceName `<string>`
+- packageDir `<string>`
+- packageName `<string>`
+- packageVersion `<string>`
+- localDir `<string>`
+- base `<string>`
+- name `<string>`
+- ext `<string>`
 
 ```js
 ┌─────────────────────┬───────────┬─────────────────────┬──────────────┬────────────┐
@@ -53,14 +53,24 @@ The returned object will have the following properties:
                                ╰──────────────────╯  ╰──────────────────╯
 ```
 
-If you parse the path which **don't contain** any `package.json` files the result will be exactly same as when you use `path.parse(path)`
+### Notice
+
+- `base`, `name` and `ext` will be empty strings if `absolutePath` points to a dir
+- `packageDir` is a relative path between workspace folder and a package folder. It will be an empty string if one of them is absent
+- `dir` path to the folder:
+- - 1) that contain a workspace folder (not including workspace folder itself)
+- - 2) of a package if no workspace is found
+- - 3) that `absolutePath` points if neither a package nor a workspace were found. Never includes a file name.
+- `localDir` is a remaining part of path between package folder (or workspace folder) and a end point specified by `absolutePath`. Never includes a file name.
+
+> You can rely on that `dir` + `workspace` + `packageDir` + `localDir` + `base` is always equal to `absolutePath`. See examples for details.
 
 ### Example
 
 ```js
-const absoluteDir = '/home/usulpro/WebProjects/read-pkg-workspace/workspaces/unicorns/celestabelleabethabelle/src/stories/unicorn.story.js';
+const absolutePath = '/home/usulpro/WebProjects/read-pkg-workspace/workspaces/unicorns/celestabelleabethabelle/src/stories/unicorn.story.js';
 
-parseWspPath(absoluteDir)
+parseWspPath(absolutePath)
   .then(result => console.log(result))
 
 ```
@@ -85,4 +95,4 @@ will output:
 
 Take a look on some other visual examples:
 
-[color output](../../doc/coloroutput.png)
+![color output](../../doc/coloroutput.png)
