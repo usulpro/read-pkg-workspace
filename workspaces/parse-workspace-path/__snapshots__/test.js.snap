@@ -114,7 +114,7 @@ Object {
   "name": "",
   "packageDir": "read-pkg-workspace",
   "packageName": "read-pkg-workspace",
-  "packageVersion": "0.1.0",
+  "packageVersion": "0.1.1",
   "root": "/",
   "workspaceName": "workspaces",
 }

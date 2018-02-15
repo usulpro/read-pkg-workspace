@@ -1,6 +1,6 @@
 {
   "name": "read-pkg-workspace",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Read the closest package.json files and find yarn workspaces",
   "main": "index.js",
   "author": "UsulPro",
