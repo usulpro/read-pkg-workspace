@@ -47,11 +47,11 @@ Object {
 
 exports[`parse-workspace-path. use cases test nested packages dir 1`] = `
 Object {
-  "base": "dist",
+  "base": "",
   "dir": "dir",
   "ext": "",
-  "localDir": "",
-  "name": "dist",
+  "localDir": "dist",
+  "name": "",
   "packageDir": "",
   "packageName": "read-pkg",
   "packageVersion": "3.0.0",
@@ -92,11 +92,11 @@ Object {
 
 exports[`parse-workspace-path. use cases test no package file 1`] = `
 Object {
-  "base": "",
+  "base": "readme.md",
   "dir": "dir",
-  "ext": "",
+  "ext": ".md",
   "localDir": "",
-  "name": "",
+  "name": "readme",
   "packageDir": "",
   "packageName": "",
   "packageVersion": "",
@@ -122,11 +122,11 @@ Object {
 
 exports[`parse-workspace-path. use cases test package in the workspace (specified by *) 1`] = `
 Object {
-  "base": "stories",
+  "base": "",
   "dir": "dir",
   "ext": "",
-  "localDir": "src",
-  "name": "stories",
+  "localDir": "src/stories",
+  "name": "",
   "packageDir": "unicorns/celestabelleabethabelle",
   "packageName": "celestabelleabethabelle",
   "packageVersion": "1.0.0",
@@ -137,11 +137,11 @@ Object {
 
 exports[`parse-workspace-path. use cases test single workspace dir 1`] = `
 Object {
-  "base": "usual-packages",
+  "base": "",
   "dir": "dir",
   "ext": "",
-  "localDir": "",
-  "name": "usual-packages",
+  "localDir": "usual-packages",
+  "name": "",
   "packageDir": "",
   "packageName": "",
   "packageVersion": "",

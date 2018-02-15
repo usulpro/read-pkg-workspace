@@ -55,3 +55,34 @@ The returned object will have the following properties:
 
 If you parse the path which **don't contain** any `package.json` files the result will be exactly same as when you use `path.parse(path)`
 
+### Example
+
+```js
+const absoluteDir = '/home/usulpro/WebProjects/read-pkg-workspace/workspaces/unicorns/celestabelleabethabelle/src/stories/unicorn.story.js';
+
+parseWspPath(absoluteDir)
+  .then(result => console.log(result))
+
+```
+
+will output:
+
+```console
+{
+  root: '/',
+  dir: '/home/usulpro/WebProjects/read-pkg-workspace',
+  localDir: 'src/stories',
+  base: 'unicorn.story.js',
+  ext: '.js',
+  name: 'unicorn.story',
+  workspaceName: 'workspaces',
+  packageDir: 'unicorns/celestabelleabethabelle',
+  packageName: 'celestabelleabethabelle',
+  packageVersion: '1.0.0'
+}
+
+```
+
+Take a look on some other visual examples:
+
+[color output](../../doc/coloroutput.png)

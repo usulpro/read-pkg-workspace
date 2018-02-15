@@ -28,15 +28,16 @@ const testSnapshot = result => {
 
 const testPathSequence = (cwd, result) => {
   // console.log('CWD: ', cwd, '\n\n', result);
-  const summaryPath = path.resolve(
+  const summaryPath = path.join(
     result.dir,
     result.workspaceName,
     result.packageDir,
     result.localDir,
     result.base,
   );
-  expect(summaryPath).toBe(cwd);
+  // console.log('summaryPath: ', summaryPath);
   resultsToColorize.push(result);
+  expect(summaryPath).toBe(cwd);
   testSnapshot(result);
 }
 
@@ -166,8 +167,15 @@ describe('parse-workspace-path. use cases', () => {
 describe('parse-workspace-path. color output', () => {
   it('visual tests:', () => {
     expect.assertions(11);
+
+    process.stdout.write(chalk.yellow.bgBlackBright('Color output:\n\n'));
+
+    resultsToColorize.forEach(result => {
+      expect(() => process.stdout.write(`\t${colorize(result)}\n`)).not.toThrow();
+    })
+
     process.stdout.write([
-      chalk.gray('\nLegend:\t'),
+      chalk.yellow.bgBlackBright('\nLegend:\t'),
       chalk.green('dir/['),
       chalk.cyan('workspace'),
       chalk.green(']/'),
@@ -176,11 +184,22 @@ describe('parse-workspace-path. color output', () => {
       chalk.white('/localDir/'),
       chalk.magenta('base'),
       '\n\n',
-    ].join(''))
-    resultsToColorize.forEach(result => {
-      expect(() => process.stdout.write(`\t${colorize(result)}\n`)).not.toThrow();
-    })
-    process.stdout.write(`\n\n`);
+    ].join(''));
+    process.stdout.write([
+      chalk.green('dir/'),
+      chalk.reset(' - path to the folder, containing a package, workspace folder or a single file\n'),
+      chalk.cyan('[workspace]'),
+      chalk.reset(` - workspace name = workspace folder. Will be an empty string '' if workspace is not found\n`),
+      chalk.greenBright('packageDir/'),
+      chalk.reset(` - relative path from workspace to package folder. If there are no package or no workspace it's ''\n`),
+      chalk.yellow('(packageName@packageVersion)'),
+      chalk.reset(` - is taken from a package.json file. Will be empty string '' if package is not found\n`),
+      chalk.white('/localDir/'),
+      chalk.reset(` - relative path from package or workspace (if there is no package) folder to the specified folder. If there are no package and no workspace it's collapsing to ''\n`),
+      chalk.magenta('base'),
+      chalk.reset(` - file name + file extension. If specified a dir it's an empty string\n\n`),
+    ].join(''));
+    process.stdout.write('\n\n');
 
   });
 })
