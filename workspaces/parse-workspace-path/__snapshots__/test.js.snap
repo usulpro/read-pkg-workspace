@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parse-workspace-path. use cases test file in a package not specified in workspaces 1`] = `
+Object {
+  "base": "index.js",
+  "dir": "dir",
+  "ext": ".js",
+  "localDir": "src",
+  "name": "index",
+  "packageDir": "",
+  "packageName": "recreation-space",
+  "packageVersion": "1.0.0",
+  "root": "/",
+  "workspaceName": "",
+}
+`;
+
+exports[`parse-workspace-path. use cases test file in a single package 1`] = `
+Object {
+  "base": "index.js",
+  "dir": "dir",
+  "ext": ".js",
+  "localDir": "src",
+  "name": "index",
+  "packageDir": "",
+  "packageName": "recreation-space",
+  "packageVersion": "1.0.0",
+  "root": "/",
+  "workspaceName": "",
+}
+`;
+
+exports[`parse-workspace-path. use cases test file in workspace 1`] = `
+Object {
+  "base": "unicorn.story.js",
+  "dir": "dir",
+  "ext": ".js",
+  "localDir": "src/stories",
+  "name": "unicorn.story",
+  "packageDir": "unicorns/celestabelleabethabelle",
+  "packageName": "celestabelleabethabelle",
+  "packageVersion": "1.0.0",
+  "root": "/",
+  "workspaceName": "workspaces",
+}
+`;
+
+exports[`parse-workspace-path. use cases test nested packages dir 1`] = `
+Object {
+  "base": "dist",
+  "dir": "dir",
+  "ext": "",
+  "localDir": "",
+  "name": "dist",
+  "packageDir": "",
+  "packageName": "read-pkg",
+  "packageVersion": "3.0.0",
+  "root": "/",
+  "workspaceName": "",
+}
+`;
+
+exports[`parse-workspace-path. use cases test nested packages file 1`] = `
+Object {
+  "base": "index.js",
+  "dir": "dir",
+  "ext": ".js",
+  "localDir": "",
+  "name": "index",
+  "packageDir": "",
+  "packageName": "read-pkg",
+  "packageVersion": "3.0.0",
+  "root": "/",
+  "workspaceName": "",
+}
+`;
+
+exports[`parse-workspace-path. use cases test no package dir 1`] = `
+Object {
+  "base": "",
+  "dir": "dir",
+  "ext": "",
+  "localDir": "",
+  "name": "",
+  "packageDir": "",
+  "packageName": "",
+  "packageVersion": "",
+  "root": "/",
+  "workspaceName": "",
+}
+`;
+
+exports[`parse-workspace-path. use cases test no package file 1`] = `
+Object {
+  "base": "",
+  "dir": "dir",
+  "ext": "",
+  "localDir": "",
+  "name": "",
+  "packageDir": "",
+  "packageName": "",
+  "packageVersion": "",
+  "root": "/",
+  "workspaceName": "",
+}
+`;
+
+exports[`parse-workspace-path. use cases test package in the workspace (direclty specified) 1`] = `
+Object {
+  "base": "",
+  "dir": "dir",
+  "ext": "",
+  "localDir": "",
+  "name": "",
+  "packageDir": "read-pkg-workspace",
+  "packageName": "read-pkg-workspace",
+  "packageVersion": "0.1.0",
+  "root": "/",
+  "workspaceName": "workspaces",
+}
+`;
+
+exports[`parse-workspace-path. use cases test package in the workspace (specified by *) 1`] = `
+Object {
+  "base": "stories",
+  "dir": "dir",
+  "ext": "",
+  "localDir": "src",
+  "name": "stories",
+  "packageDir": "unicorns/celestabelleabethabelle",
+  "packageName": "celestabelleabethabelle",
+  "packageVersion": "1.0.0",
+  "root": "/",
+  "workspaceName": "workspaces",
+}
+`;
+
+exports[`parse-workspace-path. use cases test single workspace dir 1`] = `
+Object {
+  "base": "usual-packages",
+  "dir": "dir",
+  "ext": "",
+  "localDir": "",
+  "name": "usual-packages",
+  "packageDir": "",
+  "packageName": "",
+  "packageVersion": "",
+  "root": "/",
+  "workspaceName": "workspaces",
+}
+`;
+
+exports[`parse-workspace-path. use cases test single workspace file 1`] = `
+Object {
+  "base": "readme.md",
+  "dir": "dir",
+  "ext": ".md",
+  "localDir": "usual-packages",
+  "name": "readme",
+  "packageDir": "",
+  "packageName": "",
+  "packageVersion": "",
+  "root": "/",
+  "workspaceName": "workspaces",
+}
+`;

@@ -4,7 +4,7 @@
 - Supports Yarn [workspaces](https://yarnpkg.com/en/docs/workspaces)
 - Based on [read-pkg-up](https://www.npmjs.com/package/read-pkg-up) and [path.parse](https://nodejs.org/dist/latest-v9.x/docs/api/path.html#path_path_parse_path)
 
-It returns similar object like NodeJS [path.parse](https://nodejs.org/dist/latest-v9.x/docs/api/path.html#path_path_parse_path) but adds additional if finds yarn workspaces and (or) npm packages (it should be existant path)
+It returns similar object like NodeJS [path.parse](https://nodejs.org/dist/latest-v9.x/docs/api/path.html#path_path_parse_path) but adds additional if finds yarn workspaces and (or) npm packages (it should be existing path)
 
 ## Install
 
